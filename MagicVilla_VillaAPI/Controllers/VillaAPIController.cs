@@ -3,19 +3,23 @@ using MagicVilla_VillaAPI.Data;
 using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.Dto;
 using MagicVilla_VillaAPI.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using System.Text.Json;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
     //b1: them attribute o day de notify day la controller api
     //b2: phai define route 
     // controller --> cung duoc ma no bi overhead do no bao gom mvc luon --> dung controllerbase de no chi dung api thui
-    [Route("/api/VillaAPI")] //: name api thủ công
+    [Route("/api/v{version:apiVersion}/VillaAPI")] //: name api thủ công
     //[Route("api/[controller]")] : ko nen nếu thay đổi name contrller thì tất cả những route tới cái api nãy cung tahy đổi theo rrất lỏ
     [ApiController]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     public class VillaAPIController : ControllerBase
     {
         protected APIResponse _aPIResponse;
@@ -30,17 +34,42 @@ namespace MagicVilla_VillaAPI.Controllers
             _mapper = mapper;
             this._aPIResponse = new ();
         }
+
         [HttpGet]
 
+        [ResponseCache(CacheProfileName = "Default30")]
+        // [ResponseCache(Duration =30)] //cache trong 30 sencond
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> GetVillas()
+        public async Task<ActionResult<APIResponse>> GetVillas([FromQuery(Name ="filter occupancy")] int? occupancy,
+            [FromQuery] string? search = null, int pageSize = 3, int pageNumber = 1
+            )
         {
             _logger.LogInformation("GEllVilla");
             try
             {
-                IEnumerable<Villa> villaList = await _villaRepository.GetAll();
+                IEnumerable<Villa> villaList;
+                if (occupancy > 0)
+                {
+                    villaList = await _villaRepository.GetAll(u => u.Occupancy == occupancy,pageSize:pageSize,pageNumber:pageNumber);
+                }
+                else { 
+                    villaList = await _villaRepository.GetAll(pageSize: pageSize, pageNumber: pageNumber);
+
+                }
+                var check1 = villaList.ToList();
+                if (!String.IsNullOrEmpty(search)) {
+                    var check = villaList
+                        .Where(x => x.Name.ToLower().Contains(search.ToLower()))
+                        .ToList();
+                    villaList = villaList.Where(x => x.Name.ToLower().Contains(search.ToLower()));
+                }
+                Pagination pagination = new Pagination() { 
+                    PageNumber = pageNumber,
+                    PageSize = pageSize
+                };
+                Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagination));
                 _aPIResponse.result = _mapper.Map<IEnumerable<VillaDto>>(villaList);
                 _aPIResponse.StatusCode = HttpStatusCode.OK;
                 return Ok(_aPIResponse);
@@ -52,13 +81,13 @@ namespace MagicVilla_VillaAPI.Controllers
             return _aPIResponse;  
         }
 
+    
         // get ma co pamater thi phai define no o route http nay
         [HttpGet("{id:int}", Name = "GetVilla")] // cai name la de name cua cai route do de api khac call toi cai name
         // define document ve status response 
         /*[ProducesResponseType(200, Type = typeof(VillaDto))]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]*/
-
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -90,10 +119,10 @@ namespace MagicVilla_VillaAPI.Controllers
             }
             return _aPIResponse;
         }
+      
 
         [HttpPost]
-
-
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -130,6 +159,8 @@ namespace MagicVilla_VillaAPI.Controllers
         }
         // IAction result thi ko can phai define type return
         [HttpDelete("{id:int}", Name = "DeleteVilla")]
+
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteVilla(int id)

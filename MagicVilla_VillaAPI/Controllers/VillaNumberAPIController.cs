@@ -3,6 +3,7 @@ using MagicVilla_VillaAPI.Data;
 using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.Dto;
 using MagicVilla_VillaAPI.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +12,9 @@ using System.Net;
 namespace MagicVilla_VillaAPI.Controllers
 {
    
-    [Route("/api/VillaNumberAPI")] //: name api thủ công
-
+    [Route("/api/v{version:apiVersion}/VillaNumberAPI")] //: name api thủ công
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [ApiController]
     public class VillaNumberAPIController : ControllerBase
     {
@@ -29,7 +31,8 @@ namespace MagicVilla_VillaAPI.Controllers
             this._aPIResponse = new ();
         }
         [HttpGet]
-
+        [MapToApiVersion("1.0")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -38,7 +41,7 @@ namespace MagicVilla_VillaAPI.Controllers
             _logger.LogInformation("GEllVilla");
             try
             {
-                IEnumerable<VillaNumber> villaList = await _villaNumberRepository.GetAll();
+                IEnumerable<VillaNumber> villaList = await _villaNumberRepository.GetAll(includeProperties:"Villa");
                 _aPIResponse.result = _mapper.Map<IEnumerable<VillaNumberDTO>>(villaList);
                 _aPIResponse.StatusCode = HttpStatusCode.OK;
                 _aPIResponse.IsSucess = true;
@@ -51,13 +54,22 @@ namespace MagicVilla_VillaAPI.Controllers
             return _aPIResponse;  
         }
 
+        [MapToApiVersion("2.0")]
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "Bhrugen", "DotNetMastery" };
+        }
+
+
+
         // get ma co pamater thi phai define no o route http nay
         [HttpGet("{id:int}", Name = "GetVillaNumber")] // cai name la de name cua cai route do de api khac call toi cai name
         // define document ve status response 
         /*[ProducesResponseType(200, Type = typeof(VillaDto))]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]*/
-
+        [ResponseCache(Location =ResponseCacheLocation.None,NoStore =true)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -99,6 +111,13 @@ namespace MagicVilla_VillaAPI.Controllers
         public async Task<ActionResult<APIResponse>> CreateVillaNumber([FromBody] VillaNumberCreateDTO CreateDto)
         {
             try {
+
+                if (await _villaNumberRepository.Get(x=>x.VillaNo==CreateDto.VillaNo) != null)
+                {
+                    ModelState.AddModelError("ErrorMessages", "Villa Number already Exists!");
+                    return BadRequest(ModelState);
+                }
+                
                 if (CreateDto == null)
                 {
                     return BadRequest();

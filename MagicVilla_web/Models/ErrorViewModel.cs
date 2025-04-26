@@ -1,4 +1,4 @@
-namespace MagicVilla_web.Models
+namespace MagicVilla_Web.Models
 {
     public class ErrorViewModel
     {

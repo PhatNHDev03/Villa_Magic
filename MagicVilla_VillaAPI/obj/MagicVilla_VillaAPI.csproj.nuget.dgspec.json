@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj": {}
+    "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj": {}
   },
   "projects": {
-    "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj": {
+    "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
+        "projectUniqueName": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
         "projectName": "MagicVilla_VillaAPI",
-        "projectPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
+        "projectPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_VillaAPI\\obj\\",
+        "outputPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

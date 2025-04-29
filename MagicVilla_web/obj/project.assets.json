@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net7.0": {
       "AutoMapper/11.0.1": {
         "type": "package",
         "dependencies": {
@@ -204,7 +204,7 @@
       },
       "MagicVilla_Utility/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "compile": {
           "bin/placeholder/MagicVilla_Utility.dll": {}
         },
@@ -582,7 +582,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net7.0": [
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "MagicVilla_Utility >= 1.0.0",
@@ -596,18 +596,18 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_web\\MagicVilla_web.csproj",
-      "projectName": "MagicVilla_web",
-      "projectPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_web\\MagicVilla_web.csproj",
+      "projectUniqueName": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_Web\\MagicVilla_Web.csproj",
+      "projectName": "MagicVilla_Web",
+      "projectPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_Web\\MagicVilla_Web.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_web\\obj\\",
+      "outputPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -616,11 +616,11 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_Utility\\MagicVilla_Utility.csproj": {
-              "projectPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_Utility\\MagicVilla_Utility.csproj"
+            "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_Utility\\MagicVilla_Utility.csproj": {
+              "projectPath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_Utility\\MagicVilla_Utility.csproj"
             }
           }
         }
@@ -637,8 +637,8 @@
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -676,7 +676,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -688,7 +688,7 @@
       "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.10.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
-        "net8.0"
+        "net7.0"
       ]
     }
   ]

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yFRHJrels6Q=",
+  "dgSpecHash": "Wrn4zU5sOS4=",
   "success": true,
-  "projectFilePath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\MagicVilla_web\\MagicVilla_web.csproj",
+  "projectFilePath": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_Web\\MagicVilla_Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
@@ -26,7 +26,7 @@
       "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.10.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
-        "net8.0"
+        "net7.0"
       ]
     }
   ]

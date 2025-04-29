@@ -2,17 +2,21 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace MagicVilla_VillaAPI.Data
 {
-    public class ApplicationDbContext:IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options)
-            :base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<LocalUser> LocalUser { get; set; }
-        public DbSet<Villa> villas { get; set; }
-        public DbSet<VillaNumber>  villaNumbers { get; set; }
+
+        public DbSet<LocalUser> LocalUsers { get; set; }
+        public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> VillaNumbers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -27,7 +31,7 @@ namespace MagicVilla_VillaAPI.Data
                     Rate = 200,
                     Sqft = 550,
                     Amenity = "",
-                    CreatedDate = new DateTime(2023, 01, 01)
+                    CreatedDate = DateTime.Now
                 },
               new Villa
               {
@@ -39,7 +43,7 @@ namespace MagicVilla_VillaAPI.Data
                   Rate = 300,
                   Sqft = 550,
                   Amenity = "",
-                  CreatedDate = new DateTime(2023, 01, 01)
+                  CreatedDate = DateTime.Now
               },
               new Villa
               {
@@ -51,7 +55,7 @@ namespace MagicVilla_VillaAPI.Data
                   Rate = 400,
                   Sqft = 750,
                   Amenity = "",
-                  CreatedDate = new DateTime(2023, 01, 01)
+                  CreatedDate = DateTime.Now
               },
               new Villa
               {
@@ -63,7 +67,7 @@ namespace MagicVilla_VillaAPI.Data
                   Rate = 550,
                   Sqft = 900,
                   Amenity = "",
-                  CreatedDate = new DateTime(2023, 01, 01)
+                  CreatedDate = DateTime.Now
               },
               new Villa
               {
@@ -75,7 +79,7 @@ namespace MagicVilla_VillaAPI.Data
                   Rate = 600,
                   Sqft = 1100,
                   Amenity = "",
-                  CreatedDate = new DateTime(2023, 01, 01)
+                  CreatedDate = DateTime.Now
               });
         }
     }

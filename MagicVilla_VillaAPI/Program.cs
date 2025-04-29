@@ -1,26 +1,23 @@
 ﻿
-
 using MagicVilla_VillaAPI;
 using MagicVilla_VillaAPI.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
-using Microsoft.EntityFrameworkCore;
-using AutoMapper;
-using System.Reflection;
-using MagicVilla_VillaAPI.Repository.IRepository;
+using MagicVilla_VillaAPI.Repository.IRepostiory;
 using MagicVilla_VillaAPI.Repository;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MagicVilla_VillaAPI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(option => {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -36,7 +33,7 @@ builder.Services.AddApiVersioning(options => {
 });
 builder.Services.AddVersionedApiExplorer(options =>
 {
-    options.GroupNameFormat = "'v'VVV";
+    options.GroupNameFormat = "'v'VVV";  // đúng format nè
     options.SubstituteApiVersionInUrl = true;
 });
 
@@ -53,12 +50,12 @@ builder.Services.AddAuthentication(x =>
         x.SaveToken = true;
         x.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
-            ValidateIssuer = false,
-            ValidateAudience = false
-        };
-    });
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+});
 
 builder.Services.AddControllers(option => {
     option.CacheProfiles.Add("Default30",
@@ -132,6 +129,7 @@ builder.Services.AddSwaggerGen(options => {
             Url = new Uri("https://example.com/license")
         }
     });
+    
 });
 var app = builder.Build();
 
@@ -142,6 +140,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options => {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Magic_VillaV1");
         options.SwaggerEndpoint("/swagger/v2/swagger.json", "Magic_VillaV2");
+        
+        
     });
 }
 

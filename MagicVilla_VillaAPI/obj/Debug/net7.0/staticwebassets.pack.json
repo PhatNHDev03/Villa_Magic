@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\ProductImage\\10",
+      "PackagePath": "staticwebassets\\ProductImage"
+    },
+    {
+      "Id": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\ProductImage\\11",
+      "PackagePath": "staticwebassets\\ProductImage"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.MagicVilla_VillaAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.MagicVilla_VillaAPI.props",
+      "PackagePath": "build\\MagicVilla_VillaAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.MagicVilla_VillaAPI.props",
+      "PackagePath": "buildMultiTargeting\\MagicVilla_VillaAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.MagicVilla_VillaAPI.props",
+      "PackagePath": "buildTransitive\\MagicVilla_VillaAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

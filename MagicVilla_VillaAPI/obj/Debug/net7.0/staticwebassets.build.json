@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "2EuVuEOCwaXJOicO+dLRTgT95GEp5nIP0asBtFgvVvA=",
+  "Source": "MagicVilla_VillaAPI",
+  "BasePath": "_content/MagicVilla_VillaAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MagicVilla_VillaAPI\\wwwroot",
+      "Source": "MagicVilla_VillaAPI",
+      "ContentRoot": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\",
+      "BasePath": "_content/MagicVilla_VillaAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\ProductImage\\10",
+      "SourceId": "MagicVilla_VillaAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\",
+      "BasePath": "_content/MagicVilla_VillaAPI",
+      "RelativePath": "ProductImage/10",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\10"
+    },
+    {
+      "Identity": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\ProductImage\\11",
+      "SourceId": "MagicVilla_VillaAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work_space\\Udemy\\DOTNET_API\\MagicVilla_VillaAPI\\Villa_Magic\\MagicVilla_VillaAPI\\wwwroot\\",
+      "BasePath": "_content/MagicVilla_VillaAPI",
+      "RelativePath": "ProductImage/11",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\11"
+    }
+  ]
+}

@@ -1,19 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+       
+        stage('Hello') {
             steps {
-                sh 'dotnet build'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'dotnet test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh './deploy.sh'
+                echo 'Hello World'  
             }
         }
     }
